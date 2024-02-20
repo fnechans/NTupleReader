@@ -33,6 +33,20 @@ class RegionWrapper:
             )
         self.regions[new_name] = region
 
+    def add_region(self, name: str, definition: str):
+        """Adds sub-region to the region. Returns it as a wrapper.
+
+        Arguments:
+            name (``str``): name of the region
+            definition (``str``): definition of the region
+
+        Returns:
+            ``RegionWrapper``: region as a wrapper
+        """
+        region = RegionWrapper(name, definition)
+        self.Region(region)
+        return region
+
     def Apply(self, df: DFWrapper, histos: List[H1DWrapper] = []):
         """Applies region to the dataframe and books histograms.
 
