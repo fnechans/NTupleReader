@@ -247,6 +247,6 @@ def run_all(frames: Dict[str, DFWrapper], out_dir: str):
     print("Saving int file")
     for name, frame in frames.items():
         print(f"{name} #events final: ", frame.Count().GetValue())
-        with ROOT.TFile(f"{out_dir}histo_{name}.root", "RECREATE") as f:
+        with ROOT.TFile(f"{out_dir}/histo_{name}.root", "RECREATE") as f:
             frame.WriteAll(f)
         frame.Cutflow()
